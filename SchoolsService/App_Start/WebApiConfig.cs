@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace SchoolsService
 {
@@ -9,6 +6,10 @@ namespace SchoolsService
     {
         public static void Register(HttpConfiguration config)
         {
+            // OData API routes
+            // Note: OData routes need to be registered 'after' web api routes else you would face a runtime error "ValueFactory attempted to access Value property of this instance
+            ODataApiConfig.Register(config);
+
             // Web API configuration and services
 
             // Web API routes
